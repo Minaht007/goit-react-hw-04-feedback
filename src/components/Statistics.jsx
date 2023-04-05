@@ -1,10 +1,10 @@
-export function Statistic({
+export const Statistic = ({
   good,
   neutral,
   bad,
   totalFeedback,
   positivePercentage,
-}) {
+}) => {
   return (
     <div>
       <ul>
@@ -16,4 +16,4 @@ export function Statistic({
       </ul>
     </div>
   );
-}
+};

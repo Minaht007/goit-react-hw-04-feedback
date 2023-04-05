@@ -14,32 +14,32 @@ export const App = () => {
   const [neutral, setNeutaral] = useState();
   const [bad, setBad] = useState();
 
-  addFeedBack = name => {
+  const addFeedBack = name => {
     // this.setState(prevState => {
     //   return {
     //     [event.target.name]: prevState[event.target.name] + 1,
     //   };
     // });
     switch (name) {
-      case good:
+      case 'good':
         setGood(prevGood => prevGood + 1);
         break;
-      case neutral:
+      case 'neutral':
         setNeutaral(prevNeutaral => prevNeutaral + 1);
         break;
-      case bad:
+      case 'bad':
         setBad(prevBad => prevBad + 1);
         break;
-        defaul: console.log('mistake target');
+        defaul: return;
     }
   };
 
-  countTotalFeedback = () => {
+  const countTotalFeedback = () => {
     const add = good + neutral + bad;
     return add;
   };
 
-  countPositiveFeedbackPercentage = () => {
+  const countPositiveFeedbackPercentage = () => {
     if (good) {
       const positiv = Math.round(good / (countTotalFeedback() / 100));
       return positiv;
