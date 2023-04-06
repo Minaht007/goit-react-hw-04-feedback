@@ -26,12 +26,13 @@ export const App = () => {
         setGood(prevGood => prevGood + 1);
         break;
       case 'neutral':
-        setNeutaral(prevNeutaral => prevNeutaral + 1);
+        setNeutaral(prevNeutral => prevNeutral + 1);
         break;
       case 'bad':
         setBad(prevBad => prevBad + 1);
         break;
-      // defaul: return;
+      default:
+        return;
     }
   };
 
