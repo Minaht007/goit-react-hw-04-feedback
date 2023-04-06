@@ -3,14 +3,18 @@ import PropTypes from 'prop-types';
 export const FeedbackOptions = ({ options, addFeedBack }) => {
   return options.map(name => {
     return (
-      <button onClick={addFeedBack} name={name} type="button">
-        {name}
-      </button>
+      <ul>
+        <li key={name}>
+          <button key={name} onClick={addFeedBack} name={name} type="button">
+            {name}
+          </button>
+        </li>
+      </ul>
     );
   });
 };
 
 FeedbackOptions.propTypes = {
-  name: PropTypes.array.isRequired,
-  addFeedBack: PropTypes.func.isRequired,
+  name: PropTypes.array,
+  addFeedBack: PropTypes.func,
 };

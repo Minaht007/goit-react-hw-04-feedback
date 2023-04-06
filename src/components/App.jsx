@@ -5,21 +5,13 @@ import { Notification } from './Notification';
 import { Section } from './Section/section';
 
 export const App = () => {
-  // state = {
-  //   good: 0,
-  //   neutral: 0,
-  //   bad: 0,
-  // };
-  const [good, setGood] = useState();
-  const [neutral, setNeutaral] = useState();
-  const [bad, setBad] = useState();
+  const [good, setGood] = useState(0);
+  const [neutral, setNeutaral] = useState(0);
+  const [bad, setBad] = useState(0);
+  const feedBack = { good, bad, neutral };
+  console.log(feedBack);
 
   const addFeedBack = e => {
-    // this.setState(prevState => {
-    //   return {
-    //     [event.target.name]: prevState[event.target.name] + 1,
-    //   };
-    // });
     const { name } = e.target;
     switch (name) {
       case 'good':
@@ -54,13 +46,14 @@ export const App = () => {
       <Section title={'FeedbackOption'}>
         <FeedbackOptions
           name={['good', 'bad', 'neutral']}
-          options={Object.keys(useState())}
+          options={Object.keys(feedBack)}
           addFeedback={addFeedBack}
         ></FeedbackOptions>
       </Section>
       <Section title={'Statistic'}>
-        {countTotalFeedback() ? (
+        {countTotalFeedback() > 0 ? (
           <Statistic
+            key={feedBack}
             good={good}
             neutral={neutral}
             bad={bad}
