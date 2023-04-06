@@ -14,12 +14,13 @@ export const App = () => {
   const [neutral, setNeutaral] = useState();
   const [bad, setBad] = useState();
 
-  const addFeedBack = name => {
+  const addFeedBack = e => {
     // this.setState(prevState => {
     //   return {
     //     [event.target.name]: prevState[event.target.name] + 1,
     //   };
     // });
+    const { name } = e.target;
     switch (name) {
       case 'good':
         setGood(prevGood => prevGood + 1);
@@ -30,7 +31,7 @@ export const App = () => {
       case 'bad':
         setBad(prevBad => prevBad + 1);
         break;
-        defaul: return;
+      // defaul: return;
     }
   };
 
@@ -52,7 +53,7 @@ export const App = () => {
       <Section title={'FeedbackOption'}>
         <FeedbackOptions
           name={['good', 'bad', 'neutral']}
-          // options={Object.keys(useState())}
+          options={Object.keys(useState())}
           addFeedback={addFeedBack}
         ></FeedbackOptions>
       </Section>
