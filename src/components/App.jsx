@@ -11,7 +11,7 @@ export const App = () => {
   const feedBack = { good, bad, neutral };
   console.log(feedBack);
 
-  const addFeedBack = e => {
+  const addFeedback = e => {
     const { name } = e.target;
     switch (name) {
       case 'good':
@@ -35,10 +35,10 @@ export const App = () => {
 
   const countPositiveFeedbackPercentage = () => {
     if (good) {
-      const positiv = Math.round(good / (countTotalFeedback() / 100));
+      const positiv = Math.round((good / countTotalFeedback()) * 100);
       return positiv;
     }
-    return 0;
+    return;
   };
 
   return (
@@ -47,13 +47,12 @@ export const App = () => {
         <FeedbackOptions
           name={['good', 'bad', 'neutral']}
           options={Object.keys(feedBack)}
-          addFeedback={addFeedBack}
+          addFeedback={addFeedback}
         ></FeedbackOptions>
       </Section>
       <Section title={'Statistic'}>
         {countTotalFeedback() > 0 ? (
           <Statistic
-            key={feedBack}
             good={good}
             neutral={neutral}
             bad={bad}

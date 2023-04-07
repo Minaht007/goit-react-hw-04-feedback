@@ -1,15 +1,11 @@
 import PropTypes from 'prop-types';
 
-export const FeedbackOptions = ({ options, addFeedBack }) => {
+export const FeedbackOptions = ({ options, addFeedback }) => {
   return options.map(name => {
     return (
-      <ul>
-        <li key={name}>
-          <button key={name} onClick={addFeedBack} name={name} type="button">
-            {name}
-          </button>
-        </li>
-      </ul>
+      <button key={name} onClick={addFeedback} name={name} type="button">
+        {name}
+      </button>
     );
   });
 };
